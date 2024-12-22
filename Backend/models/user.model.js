@@ -16,7 +16,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         minlength:[3,'Last Name must be atleast 3 characters long'],
     },
-},
+
+
+        },
 
     email:
     {
@@ -44,7 +46,7 @@ const userSchema = new mongoose.Schema({
 })
 
 userSchema.methods.generateAuthToken = function (){
-    const token = jwt.sign({_id: this._id}, process.env.JWT_SECRET);
+    const token = jwt.sign({_id: this._id}, process.env.JWT_SECRET, { expiresIn: '24h' });
     return token;
 }
 
@@ -57,5 +59,8 @@ userSchema.statics.hashPassword = async function ( password) {
 }
 
 const userModel = mongoose.model('user',userSchema);
+
+
+
 
 module.exports = userModel;
