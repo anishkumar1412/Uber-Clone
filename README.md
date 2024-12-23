@@ -132,3 +132,57 @@ Logout the authenticated user.
 
 - **400 Bad Request**: No token provided
 - **500 Internal Server Error**: Server error
+
+## Captain Registration
+
+### POST /captains/register
+
+Register a new captain in the system.
+
+#### Request Body
+
+```json
+{
+    "fullname": {
+        "firstname": "string",
+        "lastname": "string"
+    },
+    "email": "string",
+    "password": "string",
+    "vehicle": {
+        "color": "string",
+        "plate": "string",
+        "capacity": "number",
+        "vehicleType": "string"
+    }
+}
+```
+
+#### Response
+
+##### Success Response (201 Created)
+```json
+{
+    "token": "string",
+    "captain": {
+        "_id": "string",
+        "fullname": {
+            "firstname": "string",
+            "lastname": "string"
+        },
+        "email": "string",
+        "vehicle": {
+            "color": "string",
+            "plate": "string",
+            "capacity": "number",
+            "vehicleType": "string"
+        }
+    }
+}
+```
+
+##### Error Responses
+
+- **400 Bad Request**: Invalid input data
+- **409 Conflict**: Email already exists
+- **500 Internal Server Error**: Server error
