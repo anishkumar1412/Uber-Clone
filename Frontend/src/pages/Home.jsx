@@ -83,7 +83,7 @@ useGSAP(function(){
   }
 },[confirmRidePanel])
 useGSAP(function(){
-  if(WaitingForDriver)
+  if(waitingForDriver)
   {
 
     gsap.to(waitingForDriverRef.current,{
@@ -161,7 +161,7 @@ useGSAP(function(){
       <div ref={vehicleFoundRef}  className='fixed w-full z-10 bottom-0 translate-y-full px-3 py-6 pt-12 bg-white'>
        <LookingForDriver setVehicleFound={setVehicleFound}/>
       </div>
-      <div ref={waitingForDriverRef}  className='fixed w-full z-10 bottom-0 px-3 py-6 pt-12 bg-white'>
+      <div ref={waitingForDriverRef}  className='fixed w-full z-10 bottom-0 px-3 py-6 pt-12 translate-y-full bg-white'>
        <WaitingForDriver setConfirmRidePanel={setConfirmRidePanel} setwaitingForDriver={setwaitingForDriver} />
       </div>
     </div>
