@@ -7,7 +7,7 @@ const CaptainProtectedWrapper = ({ children }) => {
     const token = localStorage.getItem('token');
     const navigate = useNavigate();
     const [isLoading,setIsLoading] = useState(true);
-
+     const {captain, setCaptain} = useContext(CaptainDataContext);
     useEffect(() => {
         if (!token) {
             navigate('/captain-login');
@@ -35,7 +35,7 @@ const CaptainProtectedWrapper = ({ children }) => {
 }, [token, navigate]);
     if(isLoading)
     {
-        return<div>Loading...</div>
+        return<div className='flex items-center justify-center font-semibold h-screen'>Loading...</div>
     }
     // Render nothing or a loading spinner while redirecting
     if (!token) {

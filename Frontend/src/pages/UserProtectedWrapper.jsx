@@ -33,7 +33,7 @@ const [isLoading,setIsLoading] = useState(true);
 }, [token, navigate, setUser]);
 
 if(isLoading) {
-    return <div>Loading...</div>;
+    return <div className='flex items-center justify-center font-semibold h-screen'>Loading...</div>;
 }
 
     // Render nothing or a loading spinner while redirecting
